@@ -34,7 +34,7 @@ const apiUrl: string = 'http://localhost:8080';
 export const ScoreMethods = {
     methods: {
         async insertScore(params: any) {
-            return await axios.post(`${apiUrl}/storeScore`, params);
+          return await axios.post(`${apiUrl}/storeScore`, params);
         },
         async getHighestScores() {
             return await axios.get(`${apiUrl}/getHighestScores`);

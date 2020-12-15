@@ -153,6 +153,7 @@ function startSnakeGame(){
 function gameOver(boardPos: Position){
     previousX = boardPos.xPos + 2;
     previousY = boardPos.yPos;
+    app.ticker.remove(gameLoop);
             if (PlayerName.length > 0) {
                 const params = new URLSearchParams();
                 params.append("PlayerName",PlayerName)
@@ -160,12 +161,10 @@ function gameOver(boardPos: Position){
                 params.append("Score",Score)
                 ScoreMethods.methods.insertScore(params).then(function (){
                     //verwijderd de game loop uit de ticker en laat het gameOver scherm zien.
-                    app.ticker.remove(gameLoop);
                     ShowGameOver();
                 });
             }
             else{
-                app.ticker.remove(gameLoop);
                 ShowGameOver();
             }
 }
@@ -227,7 +226,7 @@ function createGameOver(){
     let button = PIXI.Sprite.from(MainMenuButton);
     button.anchor.set(0.5);
     button.x = 400;
-    button.y = 750;
+    button.y = 780;
     button.interactive = true;
     button.buttonMode= true;
     button.on('mousedown',MainMenuEnable);
